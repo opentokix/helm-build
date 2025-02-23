@@ -26,6 +26,7 @@ jobs:
 
       - name: Create Helm package
         run: |
+          git checkout gh-pages || git checkout --orphan gh-pages
           mkdir -p .deploy
           helm package example1 --destination .deploy/
 
@@ -44,6 +45,7 @@ jobs:
 
       - name: Commit and push changes
         run: |
+
           cd gh-pages
           git add .
           git commit -m "Update Helm chart repository"
