@@ -33,6 +33,7 @@ jobs:
         run: |
           git config --global user.email "github-actions@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
+          git clone --depth=2 --branch gh-pages https://github.com/${{ github.repository }}.git
           mv .deploy/*.tgz docs/
 
       - name: Update Helm repository index
