@@ -26,8 +26,6 @@ jobs:
 
       - name: Create Helm package
         run: |
-          git checkout gh-pages || git checkout --orphan gh-pages
-          git pull origin gh-pages || true
           mkdir -p .deploy
           helm package example1 --destination .deploy/
 
@@ -35,19 +33,17 @@ jobs:
         run: |
           git config --global user.email "github-actions@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
-          mkdir -p gh-pages
-          mv .deploy/*.tgz gh-pages/
+          mv .deploy/*.tgz docs/
 
       - name: Update Helm repository index
         run: |
-          cd gh-pages
+          cd docs
           helm repo index . --url https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
           cd ..
 
       - name: Commit and push changes
         run: |
-
-          cd gh-pages
+          cd docs
           git add .
           git commit -m "Update Helm chart repository"
-          git push origin gh-pages
+          git push origin main
