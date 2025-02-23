@@ -46,4 +46,4 @@ jobs:
           cd docs
           git add .
           git commit -m "Update Helm chart repository"
-          git push origin gh-pages
+          git push origin gh-pages --force
