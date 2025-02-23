@@ -3,7 +3,17 @@ entries:
   example1:
   - apiVersion: v2
     appVersion: 1.27-alpine
-    created: "2025-02-23T15:28:14.618174916Z"
+    created: "2025-02-23T15:28:34.260177283Z"
+    description: A Helm chart for Kubernetes
+    digest: 4d870397b9d6737d536ae9e1c4d74f8e36ec0554e7783c4aafb0bd5457f8b0d6
+    name: example1
+    type: application
+    urls:
+    - https://opentokix.github.io/helm-build/example1-0.1.10.tgz
+    version: 0.1.10
+  - apiVersion: v2
+    appVersion: 1.27-alpine
+    created: "2025-02-23T15:28:34.261020126Z"
     description: A Helm chart for Kubernetes
     digest: f79a9c4c549f550da60eb176e9edbd38bf6f2e803c747af8cf455e2739b84fab
     name: example1
@@ -13,7 +23,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: 1.27-alpine
-    created: "2025-02-23T15:28:14.617784769Z"
+    created: "2025-02-23T15:28:34.260590935Z"
     description: A Helm chart for Kubernetes
     digest: cefbdb09a9100269e110624800f2423b831306d841f0b825e9353797f94f7849
     name: example1
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://opentokix.github.io/helm-build/example1-0.1.8.tgz
     version: 0.1.8
-generated: "2025-02-23T15:28:14.61724305Z"
+generated: "2025-02-23T15:28:34.259453574Z"
