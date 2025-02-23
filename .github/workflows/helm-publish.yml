@@ -31,9 +31,6 @@ jobs:
 
       - name: Setup GitHub Pages branch
         run: |
-          git config --global user.email "github-actions@users.noreply.github.com"
-          git config --global user.name "GitHub Actions"
-          git clone --depth=2 --branch gh-pages https://github.com/${{ github.repository }}.git
           mv .deploy/*.tgz docs/
 
       - name: Update Helm repository index
@@ -42,9 +39,10 @@ jobs:
           helm repo index . --url https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
           cd ..
 
-      - name: Commit and push changes
-        run: |
-          cd docs
-          git add .
-          git commit -m "Update Helm chart repository"
-          git push origin gh-pages --force
+      - name: Publish to pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          user_name: GitHub Actions
+          user_email: github-actions@users.noreply.github.com
